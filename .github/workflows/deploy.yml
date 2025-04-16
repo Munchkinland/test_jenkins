@@ -31,4 +31,9 @@ jobs:
           docker push "${IMAGE_NAME}"
       
       - name: Deploy to Cloud Run
-        uses: google
+        uses: google-github-actions/deploy-cloudrun@v2
+        with:
+          service: calculadora
+          image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/calculadora
+          region: ${{ secrets.GCP_REGION }}
+          allow-unauthenticated: true
