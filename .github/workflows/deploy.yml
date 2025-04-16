@@ -23,7 +23,7 @@ jobs:
       
       - name: Build and push Docker image
         run: |
-          IMAGE_NAME="gcr.io/${{ secrets.GCP_PROJECT_ID | trim }}/calculadora"
+          IMAGE_NAME="gcr.io/${{ secrets.GCP_PROJECT_ID }}/calculadora"
           docker build -t "${IMAGE_NAME}" .
           docker push "${IMAGE_NAME}"
       
